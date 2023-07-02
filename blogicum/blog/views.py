@@ -45,11 +45,13 @@ posts = [
 ]
 
 posts_dict = {post['id']: post for post in posts}
-def post_detail (request, post_id):
+
+
+def post_detail(request, post_id):
     if post_id not in posts_dict:
-        raise Http404 (f'Post with id: {post_id} not found')
+        raise Http404(f'Post with id: {post_id} not found')
     context = {'post': posts_dict[post_id]}
-    return render (request, 'blog/detail.html', context)
+    return render(request, 'blog/detail.html', context)
 
 
 def index(request):
